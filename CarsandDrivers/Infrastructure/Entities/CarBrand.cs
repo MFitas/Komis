@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
-using CarsAndDrivers.Entities;
 
-namespace CarsAndDrivers.UseCases.Cars
+namespace CarsAndDrivers.Infrastructure.Entities
 {
     public class CarBrand
     {

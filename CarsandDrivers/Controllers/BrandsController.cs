@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CarsAndDrivers.UseCases.Brands.AddBrand;
 using CarsAndDrivers.UseCases.Brands.GetAllBrands;
-using CarsAndDrivers.UseCases.Brands.GetBrandById;
+using CarsAndDrivers.UseCases.Brands.GetBrandbyId;
 using CarsAndDrivers.UseCases.Brands.RemoveBrand;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

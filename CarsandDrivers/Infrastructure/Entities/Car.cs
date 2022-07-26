@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using CarsAndDrivers.UseCases.Cars;
 
-namespace CarsAndDrivers.Entities
+namespace CarsAndDrivers.Infrastructure.Entities
 {
     public class Car
     {

@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Models.ModelsModels;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarsAndDrivers.UseCases.Models
+namespace CarsAndDrivers.UseCases.Models.GetAllModels
 {
     public class GetAllModelsHandler : IRequestHandler<GetAllModelsQuery, List<ModelDTO>>
     {

@@ -1,7 +1,7 @@
 using CarsAndDrivers.UseCases.Brands.BrandsModels;
 using MediatR;
 
-namespace CarsAndDrivers.UseCases.Brands.GetBrandById
+namespace CarsAndDrivers.UseCases.Brands.GetBrandbyId
 {
     public class GetBrandByIdQuery : IRequest<BrandDTO>
     {

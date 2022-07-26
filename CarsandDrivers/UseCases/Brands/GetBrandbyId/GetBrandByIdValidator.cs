@@ -1,6 +1,7 @@
+using CarsAndDrivers.Infrastructure;
 using FluentValidation;
 
-namespace CarsAndDrivers.UseCases.Brands.GetBrandById
+namespace CarsAndDrivers.UseCases.Brands.GetBrandbyId
 {
     public class GetBrandByIdValidator : BrandValidator<GetBrandByIdQuery>
     {

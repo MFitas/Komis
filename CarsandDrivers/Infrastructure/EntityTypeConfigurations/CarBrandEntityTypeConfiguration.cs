@@ -1,8 +1,8 @@
-using CarsAndDrivers.UseCases.Cars;
+using CarsAndDrivers.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CarsAndDrivers.EntityTypeConfigurations
+namespace CarsAndDrivers.Infrastructure.EntityTypeConfigurations
 {
     public class CarBrandEntityTypeConfiguration : IEntityTypeConfiguration<CarBrand>
     {

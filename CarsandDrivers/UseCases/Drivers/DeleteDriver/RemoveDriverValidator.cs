@@ -1,4 +1,5 @@
 using System.Linq;
+using CarsAndDrivers.Infrastructure;
 using FluentValidation;
 
 namespace CarsAndDrivers.UseCases.Drivers.DeleteDriver

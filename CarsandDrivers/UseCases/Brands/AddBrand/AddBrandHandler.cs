@@ -1,5 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CarsAndDrivers.Infrastructure;
+using CarsAndDrivers.Infrastructure.Entities;
 using CarsAndDrivers.UseCases.Cars;
 using MediatR;
 

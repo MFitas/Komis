@@ -1,10 +1,8 @@
-using System.Collections.Generic;
-using CarsAndDrivers.Entities;
-using CarsAndDrivers.EntityTypeConfigurations;
-using CarsAndDrivers.UseCases.Cars;
+using CarsAndDrivers.Infrastructure.Entities;
+using CarsAndDrivers.Infrastructure.EntityTypeConfigurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarsAndDrivers
+namespace CarsAndDrivers.Infrastructure
 {
     public class CarsDriversContext : DbContext
     {

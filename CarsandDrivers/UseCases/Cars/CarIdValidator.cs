@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Cars.GetCarById;
 using FluentValidation;
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using CarsAndDrivers.UseCases.Models;
 using CarsAndDrivers.UseCases.Models.CreateModel;
 using CarsAndDrivers.UseCases.Models.DeleteModel;
+using CarsAndDrivers.UseCases.Models.GetAllModels;
 using CarsAndDrivers.UseCases.Models.GetModelById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

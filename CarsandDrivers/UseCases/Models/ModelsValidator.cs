@@ -1,4 +1,5 @@
 using System.Linq;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Models.CreateModel;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
