@@ -17,7 +17,7 @@ namespace CarsAndDrivers.UseCases.Brands.RemoveBrand
         
         public async Task<Unit> Handle(RemoveBrandByIdCommand command, CancellationToken cancellationToken)
         {
-            var brandToRemove =  await _carsDriversContext.Cars
+            var brandToRemove =  await _carsDriversContext.CarBrands
                 .Where(cr => cr.BrandId == command.Id)
                 .FirstOrDefaultAsync(cancellationToken);
             

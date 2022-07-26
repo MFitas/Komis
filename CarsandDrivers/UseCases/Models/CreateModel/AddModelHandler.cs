@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CarsAndDrivers.UseCases.Cars;
@@ -18,6 +19,7 @@ namespace CarsAndDrivers.UseCases.Models.CreateModel
         {
             var newModel = new CarModel()
             {
+                BrandId = _carsDriversContext.CarBrands.Local.First(x=>x.BrandName == command.BrandName).BrandId,
                 ModelName = command.ModelName.ToUpper()
             };
 

@@ -10,7 +10,8 @@ namespace CarsAndDrivers.UseCases.Drivers.DriversModels
         public  string SecondName { get; set; }
         
         public string Occupation { get; set; }
-        
+
+        public int DriverId { get; set; }
         public List<CarDTO> CarInfo { get; set; }
 
     }

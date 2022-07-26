@@ -31,11 +31,13 @@ namespace CarsAndDrivers.UseCases.Drivers.GetAllDrivers
                         FirstName = dr.FirstName,
                         SecondName = dr.SecondName,
                         Occupation = dr.Occupation,
+                        DriverId = dr.DriverId,
                         CarInfo = dr.Cars
                             .Select(cr => new CarDTO()
                             {
                                 BrandName = cr.Model.Brand.BrandName,
                                 ModelName = cr.Model.ModelName,
+                                CarId = cr.CarId
                                
                                 
 

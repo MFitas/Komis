@@ -24,7 +24,8 @@ namespace CarsAndDrivers.UseCases.Drivers.DriverGetById
                 {
                     FirstName = dr.FirstName,
                     SecondName = dr.SecondName,
-                    Occupation = dr.Occupation
+                    Occupation = dr.Occupation,
+                    DriverId = dr.DriverId
                 })
                 .FirstOrDefaultAsync(cancellationToken);
             

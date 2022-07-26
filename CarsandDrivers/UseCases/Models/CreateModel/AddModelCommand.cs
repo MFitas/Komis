@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CarsAndDrivers.UseCases.Models.CreateModel
 {
-    public class AddModelCommand : IRequest<BrandDTO>, IRequest<Unit>
+    public class AddModelCommand :  IRequest<Unit>
     {
         public string ModelName { get; set; }
         

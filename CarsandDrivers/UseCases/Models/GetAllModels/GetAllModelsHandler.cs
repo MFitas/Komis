@@ -24,7 +24,8 @@ namespace CarsAndDrivers.UseCases.Models
                 .ThenBy(md => md.ModelName)
                 .Select(md => new ModelDTO
                 {
-                    ModelName = md.ModelName
+                    ModelName = md.ModelName,
+                    ModelId = md.ModelId
                 }).ToListAsync(cancellationToken);
 
             return pushModels;

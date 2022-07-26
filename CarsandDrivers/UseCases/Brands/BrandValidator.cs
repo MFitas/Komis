@@ -10,8 +10,6 @@ namespace CarsAndDrivers.UseCases.Brands
         public BrandValidator(CarsDriversContext context)
         {
             _carsDriversContext = context;
-            
-            
         }
         
         

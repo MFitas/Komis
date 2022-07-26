@@ -21,7 +21,8 @@ namespace CarsAndDrivers.UseCases.Models.GetModelById
             var pushModel = await _carsDriversContext.CarModels
                 .Select(md => new ModelDTO
                 {
-                    ModelName = md.ModelName
+                    ModelName = md.ModelName,
+                    ModelId = md.ModelId
                 }).FirstOrDefaultAsync(cancellationToken);
             
             return pushModel;

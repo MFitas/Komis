@@ -24,7 +24,9 @@ namespace CarsAndDrivers.UseCases.Brands.GetAllBrands
                 .OrderBy(br => br.BrandName)
                 .Select(br => new BrandDTO
                     {
-                        BrandName = br.BrandName
+                        BrandName = br.BrandName,
+                        BrandId = br.BrandId
+                        
                     }
                 
                 )

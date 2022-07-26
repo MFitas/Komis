@@ -8,6 +8,8 @@ namespace CarsAndDrivers.UseCases.Cars.CarsModels
         public string BrandName { get; set; }
         
         public string ModelName { get; set; }
+
+        public int CarId { get; set; }
         
         public  List<int> OwnersId { get; set; }
     }

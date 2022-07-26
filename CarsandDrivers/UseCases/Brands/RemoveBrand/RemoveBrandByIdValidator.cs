@@ -11,9 +11,11 @@ namespace CarsAndDrivers.UseCases.Brands.RemoveBrand
             RuleFor(gt => gt.Id)
                 .NotEmpty()
                 .WithMessage("Id cant be empty")
-                .WithErrorCode(ErrorCode.MissingRequiredField.ToString());
+                .WithErrorCode(ErrorCode.MissingRequiredField.ToString())
+           
+                .Must(BeValidId)
+                .WithMessage("Id not found")
+                .WithMessage(ErrorCode.NotFound.ToString());
         }
-        public bool BeValidId(int id) =>
-            _carsDriversContext.Cars.FirstOrDefault(x => x.CarId == id) != null;
     }
 }

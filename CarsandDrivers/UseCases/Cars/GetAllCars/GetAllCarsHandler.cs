@@ -27,6 +27,7 @@ namespace CarsAndDrivers.UseCases.Cars.GetAllCars
                 {
                     BrandName = cr.Model.Brand.BrandName,
                     ModelName = cr.Model.ModelName,
+                    CarId = cr.CarId,
                     OwnersId = cr.Drivers.Select(x=>x.DriverId).ToList()
 
                 }).ToListAsync(cancellationToken);

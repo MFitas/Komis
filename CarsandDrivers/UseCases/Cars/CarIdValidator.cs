@@ -7,7 +7,7 @@ namespace CarsAndDrivers.UseCases.Cars
 {
     public class CarIdValidator : CarValidator<GetCarByIdQuery>
     {
-        protected CarIdValidator(CarsDriversContext context) : base(context)
+        public CarIdValidator(CarsDriversContext context) : base(context)
         {
             RuleFor(gt => gt.Id)
                 .NotEmpty()

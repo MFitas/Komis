@@ -21,7 +21,8 @@ namespace CarsAndDrivers.UseCases.Brands.GetBrandById
             var pushBrand = await _carsDriversContext.CarBrands
                 .Select(br => new BrandDTO
                 {
-                    BrandName = br.BrandName
+                    BrandName = br.BrandName,
+                    BrandId = br.BrandId
                 })
                 .FirstOrDefaultAsync(cancellationToken);
 

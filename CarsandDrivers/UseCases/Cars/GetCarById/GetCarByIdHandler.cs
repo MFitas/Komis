@@ -26,6 +26,7 @@ namespace CarsAndDrivers.UseCases.Cars.GetCarById
                     {
                         BrandName = cr.Model.Brand.BrandName,
                         ModelName = cr.Model.ModelName,
+                        CarId = cr.CarId,
                         OwnersId = cr.Drivers
                             .Select(x=>x.DriverId)
                             .ToList()
