@@ -7,18 +7,21 @@ namespace CarsAndDrivers.UseCases.Cars.CreateCar
 {
     public class AddCarValidator : AbstractValidator<AddCarCommand>
     {
-        
-        public AddCarValidator()
+        private readonly CarsDriversContext _carsDriversContext;
+
+        public AddCarValidator(CarsDriversContext carsDriversContext)
         {
+            _carsDriversContext = carsDriversContext;
+
             ClassLevelCascadeMode = CascadeMode.Stop;
             
-            RuleFor(br => br.Brand)
+            RuleFor(br => br.BrandName)
                 .NotEmpty().WithMessage("Field cant be empty")
                 .WithErrorCode(ErrorCode.MissingRequiredField.ToString())
 
-                // .Must(BeValidBrand)
-                // .WithMessage("Invalid Brand")
-                // .WithErrorCode(ErrorCode.InvalidBrand.ToString())
+                .Must(BeValidBrand)
+                .WithMessage("Brand does not exist")
+                .WithErrorCode(ErrorCode.InvalidBrand.ToString())
 
                 .MinimumLength(2)
                 .WithMessage("Brand name is too Short")
@@ -28,13 +31,16 @@ namespace CarsAndDrivers.UseCases.Cars.CreateCar
                 .WithMessage("Brand name is too long")
                 .WithErrorCode(ErrorCode.FieldTooLong.ToString());
             
-            RuleFor(md=>md.Model)
-                .NotEmpty().WithMessage("Field cant be empty")
+            RuleFor(md=>md.ModelName)
+                .NotEmpty()
+                .WithMessage("Field cant be empty")
                 .WithErrorCode(ErrorCode.MissingRequiredField.ToString())
-
-                // .Must((command, s) =>BeValidModel(s,command.Brand) )
-                // .WithMessage("Invalid Model")
-                // .WithErrorCode(ErrorCode.InvalidModel.ToString())
+                
+                
+                .Must(BeValid)
+                .WithMessage("Model does not exist")
+                .WithErrorCode(ErrorCode.InvalidModel.ToString())
+                
 
                 .MinimumLength(2)
                 .WithMessage("Model name is too Short")
@@ -45,15 +51,18 @@ namespace CarsAndDrivers.UseCases.Cars.CreateCar
                 .WithErrorCode(ErrorCode.FieldTooLong.ToString());
         }
 
-        // private bool BeValidModel(string model, string brand)
-        // {
-        //     var modelEnumType = CarModels.GetBrandModels(brand);
-        //     return Enum.TryParse(modelEnumType, model, true, out _);
-        // }
-        //
-        // private bool BeValidBrand(string brand)
-        // {
-        //     return Enum.TryParse<CarBrand>(brand,true,out  _);
-        // }
+        private bool BeValid(string modelName)
+        {
+            return _carsDriversContext.CarModels.FirstOrDefault(x => x.ModelName == modelName) is not null;
+        }
+
+        private bool BeValidBrand(string brandName)
+        {
+            return _carsDriversContext.CarBrands.FirstOrDefault(x => x.BrandName == brandName) is not null;
+        }
+
+       
+        
+        
     }
 }

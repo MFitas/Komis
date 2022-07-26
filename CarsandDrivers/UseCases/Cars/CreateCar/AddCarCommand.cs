@@ -4,7 +4,7 @@ namespace CarsAndDrivers.UseCases.Cars.CreateCar
 {
     public class AddCarCommand : IRequest
     {
-        public string Brand { get; set; }
-        public string Model { get; set; }
+        public string BrandName { get; set; }
+        public string ModelName { get; set; }
     }
 }
