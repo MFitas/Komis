@@ -48,7 +48,7 @@ namespace CarsAndDrivers.Controllers
         {
             var oneCar = await mediator.Send(new GetCarByIdQuery
             {
-                id = id
+                Id = id
             });
             
             return Ok(oneCar);
@@ -80,8 +80,8 @@ namespace CarsAndDrivers.Controllers
             await mediator.Send(new UpdateCarByIdCommand
             {
                 Id = id,
-                Brand = command.Brand,
-                Model = command.Model
+                BrandName = command.BrandName,
+                ModelName = command.ModelName
                     
             }, cancellationToken);
 

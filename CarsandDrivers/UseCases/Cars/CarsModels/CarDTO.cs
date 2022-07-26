@@ -1,12 +1,13 @@
 using System.Collections.Generic;
+using CarsAndDrivers.UseCases.Drivers.DriversModels;
 
 namespace CarsAndDrivers.UseCases.Cars.CarsModels
 {
     public class CarDTO
     {
-        public int BrandId { get; set; }
+        public string BrandName { get; set; }
         
-        public int ModelId { get; set; }
+        public string ModelName { get; set; }
         
         public  List<int> OwnersId { get; set; }
     }

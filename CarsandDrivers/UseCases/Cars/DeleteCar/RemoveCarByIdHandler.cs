@@ -19,11 +19,11 @@ namespace CarsAndDrivers.UseCases.Cars.DeleteCar
         {
             var carToRemove =  await _carsDriversContext.Cars
                 .Where(cr => cr.CarId == command.Id)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken: cancellationToken);
             
             _carsDriversContext.Remove(carToRemove);
 
-            await _carsDriversContext.SaveChangesAsync();
+            await _carsDriversContext.SaveChangesAsync(cancellationToken);
             
             return Unit.Value;
         }

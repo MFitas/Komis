@@ -2,8 +2,8 @@ namespace CarsAndDrivers.UseCases.Cars.UpdateCarById
 {
     public class UpdateCarByIdCommandApi
     {
-        public string Brand { get; set; }
+        public string BrandName { get; set; }
         
-        public string Model { get; set; }
+        public string ModelName { get; set; }
     }
 }

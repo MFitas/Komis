@@ -6,8 +6,8 @@ namespace CarsAndDrivers.UseCases.Cars.UpdateCarById
     {
         public int Id;
         
-        public string Brand { get; set; }
+        public string BrandName { get; set; }
         
-        public string Model { get; set; }
+        public string ModelName { get; set; }
     }
 }

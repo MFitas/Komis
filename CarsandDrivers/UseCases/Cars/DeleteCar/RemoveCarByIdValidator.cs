@@ -9,7 +9,7 @@ namespace CarsAndDrivers.UseCases.Cars.DeleteCar
         public RemoveCarByIdValidator(CarsDriversContext context) : base(context)
         {
 
-            RuleFor(rm => rm.id)
+            RuleFor(rm => rm.Id)
                 .NotEmpty()
                 .WithMessage("Id cant be empty")
                 .WithErrorCode(ErrorCode.MissingRequiredField.ToString())

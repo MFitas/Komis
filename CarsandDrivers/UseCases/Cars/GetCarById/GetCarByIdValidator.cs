@@ -10,7 +10,7 @@ namespace CarsAndDrivers.UseCases.Cars.GetCarById
         public GetCarByIdValidator(CarsDriversContext context) : base(context)
         {
             
-            RuleFor(gt => gt.id)
+            RuleFor(gt => gt.Id)
                 .Must(BeValidId)
                 .WithMessage("Id not found")
                 .WithErrorCode(ErrorCode.NotFound.ToString());

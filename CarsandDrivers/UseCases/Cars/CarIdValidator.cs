@@ -9,7 +9,7 @@ namespace CarsAndDrivers.UseCases.Cars
     {
         protected CarIdValidator(CarsDriversContext context) : base(context)
         {
-            RuleFor(gt => gt.id)
+            RuleFor(gt => gt.Id)
                 .NotEmpty()
                 .WithMessage("Id cant be empty")
                 .WithErrorCode(ErrorCode.MissingRequiredField.ToString());
