@@ -16,7 +16,7 @@ namespace CarsAndDrivers.UseCases.Brands
         
         
         public bool BeValidId(int id) =>
-            _carsDriversContext.CarBrands.FirstOrDefault(x => x.BrandId == id) != null;
+            _carsDriversContext.CarBrands.FirstOrDefault(x => x.BrandId == id) is not null;
         
     }
 }

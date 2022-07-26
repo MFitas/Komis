@@ -9,6 +9,11 @@ namespace CarsAndDrivers.UseCases.Models.CreateModel
     {
         public AddModelValidator(CarsDriversContext carsDriversContext) : base(carsDriversContext)
         {
+            RuleFor(md => md.BrandName)
+                .Must(BeValidBrand)
+                .WithMessage("Brand does not exist")
+                .WithErrorCode(ErrorCode.InvalidBrand.ToString());
+                
             RuleFor(md => md.ModelName)
                 .Must(beuniqe)
                 .WithMessage("That model already exists")
@@ -17,20 +22,19 @@ namespace CarsAndDrivers.UseCases.Models.CreateModel
                 
         }
 
-        private bool beuniqe(string modelName, string brand)
+        protected bool BeValidBrand(string brand)
         {
-            
-            var model = _carsDriversContext.CarModels.Select(md => new CarModel()
-            {
-                ModelName = md.ModelName
-                
-            }).ToListAsync();
+            return  _carsDriversContext.CarBrands
+                .Include(x=> x.Models)
+                .FirstOrDefault(x=>x.BrandName== brand) is not null;
+        }
+        private bool beuniqe(AddModelCommand command, string modelName)
+        {
 
-            if (model)
-            {
-                
-            }
-            return 
+            var uniqueBrand = _carsDriversContext.CarBrands.Local
+                .First(x=>x.BrandName== command.BrandName);
+
+            return !uniqueBrand.Models.Any(x => x.ModelName == command.ModelName);
 
         }
     }

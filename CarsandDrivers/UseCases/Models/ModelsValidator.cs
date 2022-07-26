@@ -1,5 +1,7 @@
+using System.Linq;
 using CarsAndDrivers.UseCases.Models.CreateModel;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarsAndDrivers.UseCases.Models
 {
@@ -11,5 +13,7 @@ namespace CarsAndDrivers.UseCases.Models
         {
             _carsDriversContext = carsDriversContext;
         }
+        
+      
     }
 }
