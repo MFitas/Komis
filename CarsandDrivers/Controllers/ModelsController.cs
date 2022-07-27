@@ -34,9 +34,13 @@ namespace CarsAndDrivers.Controllers
         /// <returns>all Models</returns>
         [HttpGet]
         public async Task<ActionResult> GetAllModels([FromServices] IMediator mediator,
+            [FromQuery] int? brandId,
             CancellationToken cancellationToken)
         {
-            var allCars = await mediator.Send(new GetAllModelsQuery(),cancellationToken);
+            var allCars = await mediator.Send(new GetAllModelsQuery
+            {
+                BrandId   = brandId
+            },cancellationToken);
 
             return Ok(allCars);
         }
@@ -75,24 +79,6 @@ namespace CarsAndDrivers.Controllers
             });
 
             return Ok();
-        }
-
-        /// <summary>
-        /// Returns all Models of the specified Brand
-        /// </summary>
-        /// <returns>all Models of the specified Brand</returns>
-        [HttpGet("{brandName}1")]
-        public async Task<ActionResult> GetModelsByBrand(
-            [FromServices] IMediator mediator,
-            CancellationToken cancellationToken,
-                string brandName)
-        {
-            var allModelsFromOneBrand= await mediator.Send(new GetModelsByBrandQuery
-            {
-                BrandName = brandName
-            });
-            
-            return Ok(allModelsFromOneBrand);
         }
     }
 }

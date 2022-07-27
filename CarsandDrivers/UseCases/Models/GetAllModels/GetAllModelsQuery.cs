@@ -6,6 +6,6 @@ namespace CarsAndDrivers.UseCases.Models.GetAllModels
 {
     public class GetAllModelsQuery : IRequest<List<ModelDTO>>
     {
-
+        public int? BrandId { get; set; }
     }
 }
