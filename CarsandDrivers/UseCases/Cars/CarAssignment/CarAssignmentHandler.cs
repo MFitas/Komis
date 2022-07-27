@@ -1,12 +1,11 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CarsAndDrivers.Entities;
+using CarsAndDrivers.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace CarsAndDrivers.UseCases.Cars
+namespace CarsAndDrivers.UseCases.Cars.CarAssignment
 {
     public class CarAssignmentHandler : IRequestHandler<CarAssignmentCommand>
     {

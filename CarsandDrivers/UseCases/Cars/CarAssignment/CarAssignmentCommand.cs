@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace CarsAndDrivers.UseCases.Cars
+namespace CarsAndDrivers.UseCases.Cars.CarAssignment
 {
     public class CarAssignmentCommand : CarAssignmentCommandBody, IRequest
     {

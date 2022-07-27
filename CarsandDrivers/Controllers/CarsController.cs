@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CarsAndDrivers.UseCases.Cars;
+using CarsAndDrivers.UseCases.Cars.CarAssignment;
+using CarsAndDrivers.UseCases.Cars.CarsModels;
 using CarsAndDrivers.UseCases.Cars.CreateCar;
 using CarsAndDrivers.UseCases.Cars.DeleteCar;
 using CarsAndDrivers.UseCases.Cars.GetAllCars;
@@ -8,7 +11,7 @@ using CarsAndDrivers.UseCases.Cars.GetCarById;
 using CarsAndDrivers.UseCases.Cars.UpdateCarById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 
 namespace CarsAndDrivers.Controllers
 {
@@ -17,7 +20,9 @@ namespace CarsAndDrivers.Controllers
     public class CarsController : ControllerBase
     {
         
-        //CREATE CAR
+        /// <summary>
+        /// Creates new Car
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult> AddCar([FromServices]IMediator mediator,
             [FromBody] AddCarCommand command)
@@ -25,13 +30,14 @@ namespace CarsAndDrivers.Controllers
             await mediator.Send(command);
             
             return Ok();
-            
         }
         
-        //GETALLCARS
+        /// <summary>
+        /// Returns all available cars
+        /// </summary>
+        /// <returns>all available cars</returns>
         [HttpGet]
-
-        public async Task<ActionResult> GetAllCars([FromServices] IMediator mediator,
+        public async Task<ActionResult<List<CarDTO>>> GetAllCars([FromServices] IMediator mediator,
             CancellationToken cancellationToken)
         {
             var allCars = await mediator.Send(new GetAllCarsQuery(),cancellationToken);
@@ -39,7 +45,12 @@ namespace CarsAndDrivers.Controllers
             return Ok(allCars);
         }
         
-        //GETONECAR
+        
+        /// <summary>
+        /// returns car with specified id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>car with specified id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult> GetOneCarById
             ([FromServices] IMediator mediator,
@@ -54,7 +65,10 @@ namespace CarsAndDrivers.Controllers
             return Ok(oneCar);
         }
         
-        //DELETECAR
+        /// <summary>
+        /// Removes Car with specified id
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public async Task<ActionResult> RemoveCarById(
             [FromServices] IMediator mediator,
@@ -69,7 +83,10 @@ namespace CarsAndDrivers.Controllers
             return Ok();
         }
         
-        //UPDATECAR
+        /// <summary>
+        /// Updates Car data fields with specified id
+        /// </summary>
+        /// <param name="id"></param>
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateCarById(
             [FromServices] IMediator mediator,
@@ -88,8 +105,11 @@ namespace CarsAndDrivers.Controllers
             return Ok();
         }
         
-        //Carassigment
-        [HttpPut("{id}/AssignDriver")]
+       /// <summary>
+       /// Assign Car by id to a Driver with given id
+       /// </summary>
+       /// <param name="id"></param>
+       [HttpPut("{id}/AssignDriver")]
         public async Task<ActionResult> AssignDriver(
             [FromServices] IMediator mediator,
             [FromRoute] int id,

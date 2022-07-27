@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using CarsAndDrivers.Entities;
 
-namespace CarsAndDrivers.UseCases.Cars
+namespace CarsAndDrivers.Infrastructure.Entities
 {
     public class CarModel
     {

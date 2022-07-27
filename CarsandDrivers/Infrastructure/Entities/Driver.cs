@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CarsAndDrivers.Entities
+namespace CarsAndDrivers.Infrastructure.Entities
 {
     public class Driver
     {

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Brands.BrandsModels;
 using CarsAndDrivers.UseCases.Cars.CarsModels;
 using MediatR;

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Models.ModelsModels;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

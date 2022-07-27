@@ -1,3 +1,4 @@
+using CarsAndDrivers.Infrastructure;
 using FluentValidation;
 
 namespace CarsAndDrivers.UseCases.Drivers

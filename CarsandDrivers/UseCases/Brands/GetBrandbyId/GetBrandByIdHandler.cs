@@ -1,11 +1,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Brands.BrandsModels;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarsAndDrivers.UseCases.Brands.GetBrandById
+namespace CarsAndDrivers.UseCases.Brands.GetBrandbyId
 {
     public class GetBrandByIdHandler: IRequestHandler<GetBrandByIdQuery, BrandDTO>
     {

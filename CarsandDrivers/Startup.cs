@@ -1,3 +1,7 @@
+using System;
+using System.IO;
+using System.Reflection;
+using CarsAndDrivers.Infrastructure;
 using CarsAndDrivers.UseCases.Cars.CreateCar;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -38,6 +42,10 @@ namespace CarsAndDrivers
             
             services.AddSwaggerGen(c =>
             {
+                var filePath = Path.Combine(AppContext.BaseDirectory, Assembly.GetExecutingAssembly().GetName().Name + ".xml");
+                
+                c.IncludeXmlComments(filePath);
+                
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarsandDrivers", Version = "v1" });
             });
         }

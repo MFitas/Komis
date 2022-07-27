@@ -1,12 +1,13 @@
-using CarsAndDrivers.Entities;
-using CarsAndDrivers.UseCases.Cars;
+using CarsAndDrivers.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Configuration;
 
-namespace CarsAndDrivers.EntityTypeConfigurations
+namespace CarsAndDrivers.Infrastructure.EntityTypeConfigurations
 {
     public class CarModelEntityTypeConfiguration : IEntityTypeConfiguration<CarModel>
     {
+       
         public void Configure(EntityTypeBuilder<CarModel> builder)
         {
             builder

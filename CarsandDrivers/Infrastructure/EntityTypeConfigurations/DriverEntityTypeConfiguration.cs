@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using CarsAndDrivers.Entities;
+using CarsAndDrivers.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CarsAndDrivers.EntityTypeConfigurations
+namespace CarsAndDrivers.Infrastructure.EntityTypeConfigurations
 {
     public class DriverEntityTypeConfiguration : IEntityTypeConfiguration<Driver>
     {
