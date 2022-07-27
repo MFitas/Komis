@@ -23,7 +23,10 @@ namespace CarsAndDrivers.Controllers
             _mediatorDrivers = mediatorDrivers;
         }
         
-        //GET FROM MEDIATOR
+        /// <summary>
+        /// Returns all available Drivers
+        /// </summary>
+        /// <returns>all available Drivers</returns>
         [HttpGet]
         public async Task<ActionResult> GetDrivers(CancellationToken cancellationToken)
         {
@@ -31,7 +34,10 @@ namespace CarsAndDrivers.Controllers
             return Ok(drivers);
         }
         
-        //GET ONE FROM MEDIATOR
+      /// <summary>
+      /// Returns driver with specified id
+      /// </summary>
+     /// <returns>driver with specified id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult> GetDriver(int id, CancellationToken cancellationToken)
         {
@@ -42,7 +48,9 @@ namespace CarsAndDrivers.Controllers
             return Ok(driver);
         }
         
-        //POST FROM MEDIATOR
+        /// <summary>
+        /// Creates a new Driver
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult> AddDriver([FromBody] AddDriverCommand command, 
             CancellationToken cancellationToken)
@@ -53,7 +61,9 @@ namespace CarsAndDrivers.Controllers
             
         }
 
-        //DELETE BY MEDIATOR
+        /// <summary>
+        /// Removes Driver with specified id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult> RemoveDriver([FromRoute] int id,
             CancellationToken cancellationToken)
@@ -66,7 +76,9 @@ namespace CarsAndDrivers.Controllers
             return Ok();
         }
         
-        //UPDATE BY MEDIATOR
+        /// <summary>
+        /// Updates data of the Driver with given id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateDriver([FromRoute]int id,
             [FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] UpdateDriverCommandApi command,

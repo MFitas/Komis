@@ -7,18 +7,18 @@ using CarsAndDrivers.UseCases.Models.ModelsModels;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarsAndDrivers.UseCases.Models.GetAllModels
+namespace CarsAndDrivers.UseCases.Models.GetModelsByBrand
 {
-    public class GetAllModelsHandler : IRequestHandler<GetAllModelsQuery, List<ModelDTO>>
+    public class GetModelsByBrandHandler : IRequestHandler<GetModelsByBrandQuery, List<ModelDTO>>
     {
         private readonly CarsDriversContext _carsDriversContext;
         
-        public GetAllModelsHandler(CarsDriversContext context)
-         {
-             _carsDriversContext = context;
-       }
+        public GetModelsByBrandHandler(CarsDriversContext context)
+        {
+            _carsDriversContext = context;
+        }
         
-        public async Task<List<ModelDTO>> Handle(GetAllModelsQuery request, CancellationToken cancellationToken)
+        public async Task<List<ModelDTO>> Handle(GetModelsByBrandQuery request, CancellationToken cancellationToken)
         {
             var pushModels = await _carsDriversContext.CarModels
                 .OrderBy(md => md.Brand.BrandName)
@@ -28,7 +28,9 @@ namespace CarsAndDrivers.UseCases.Models.GetAllModels
                     BrandName = md.Brand.BrandName,
                     ModelName = md.ModelName,
                     ModelId = md.ModelId
-                }).ToListAsync(cancellationToken);
+                })
+                .Where(md => md.BrandName == request.BrandName)
+                .ToListAsync(cancellationToken);
 
             return pushModels;
         }

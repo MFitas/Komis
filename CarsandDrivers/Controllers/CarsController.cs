@@ -47,7 +47,7 @@ namespace CarsAndDrivers.Controllers
         
         
         /// <summary>
-        /// returns car wth specified id
+        /// returns car with specified id
         /// </summary>
         /// <param name="id"></param>
         /// <returns>car with specified id</returns>
@@ -84,13 +84,9 @@ namespace CarsAndDrivers.Controllers
         }
         
         /// <summary>
-        /// 
+        /// Updates Car data fields with specified id
         /// </summary>
-        /// <param name="mediator"></param>
         /// <param name="id"></param>
-        /// <param name="command"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateCarById(
             [FromServices] IMediator mediator,
@@ -109,8 +105,11 @@ namespace CarsAndDrivers.Controllers
             return Ok();
         }
         
-        //Carassigment
-        [HttpPut("{id}/AssignDriver")]
+       /// <summary>
+       /// Assign Car by id to a Driver with given id
+       /// </summary>
+       /// <param name="id"></param>
+       [HttpPut("{id}/AssignDriver")]
         public async Task<ActionResult> AssignDriver(
             [FromServices] IMediator mediator,
             [FromRoute] int id,
