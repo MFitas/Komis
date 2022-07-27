@@ -20,7 +20,14 @@ namespace CarsAndDrivers.UseCases.Models.GetAllModels
         
         public async Task<List<ModelDTO>> Handle(GetAllModelsQuery request, CancellationToken cancellationToken)
         {
-            var pushModels = await _carsDriversContext.CarModels
+            var pushModelsQuery = _carsDriversContext.CarModels.AsQueryable();
+            
+            if (request.BrandId is not null)
+            {
+                pushModelsQuery = pushModelsQuery.Where(x=>x.BrandId == request.BrandId);
+            }
+                
+             var pushModels = await  pushModelsQuery    
                 .OrderBy(md => md.Brand.BrandName)
                 .ThenBy(md => md.ModelName)
                 .Select(md => new ModelDTO
@@ -29,6 +36,7 @@ namespace CarsAndDrivers.UseCases.Models.GetAllModels
                     ModelName = md.ModelName,
                     ModelId = md.ModelId
                 }).ToListAsync(cancellationToken);
+            
 
             return pushModels;
         }
