@@ -16,7 +16,7 @@ namespace CarsAndDrivers.UseCases.Models.CreateModel
                 .WithErrorCode(ErrorCode.InvalidBrand.ToString());
                 
             RuleFor(md => md.ModelName)
-                .Must(beuniqe)
+                .Must(BeUniqe)
                 .WithMessage("That model already exists")
                 .WithErrorCode(ErrorCode.InvalidModel.ToString());
             
@@ -29,7 +29,7 @@ namespace CarsAndDrivers.UseCases.Models.CreateModel
                 .Include(x=> x.Models)
                 .FirstOrDefault(x=>x.BrandName== brand) is not null;
         }
-        private bool beuniqe(AddModelCommand command, string modelName)
+        private bool BeUniqe(AddModelCommand command, string modelName)
         {
 
             var uniqueBrand = _carsDriversContext.CarBrands.Local

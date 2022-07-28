@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CarsAndDrivers.Infrastructure;
@@ -22,18 +23,9 @@ namespace CarsAndDrivers.UseCases.Brands.AddManyBrands
         {
             List<CarBrand> brandlist = new List<CarBrand>();
 
-            var carBrands = new List<CarBrand>();
-            
-            foreach (var brandName  in command.BrandNames)
-            {
-               carBrands.Add(new CarBrand
-               {
-                   BrandName = brandName.BrandName
-               });
-            }
-           
-            
-            
+            var carBrands = command.BrandNames.Select(brandName => new CarBrand { BrandName = brandName.BrandName })
+                .ToList();
+
 
             await _carsDriversContext.AddRangeAsync(carBrands, cancellationToken);
             await _carsDriversContext.SaveChangesAsync(cancellationToken);

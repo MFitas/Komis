@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.Json;
@@ -28,6 +29,9 @@ namespace CarsAndDrivers.UseCases.Brands.ImportBrands
                 while (reader.Peek() >= 0)
                     result.AppendLine(await reader.ReadLineAsync());
             }
+
+            
+            
             var brandsSerialize = JsonConvert.DeserializeObject<BrandsSerialize>(result.ToString());
 
             foreach (var carBrand in brandsSerialize.CarBrands)

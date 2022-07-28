@@ -6,7 +6,9 @@ using CarsAndDrivers.UseCases.Models.DeleteModel;
 using CarsAndDrivers.UseCases.Models.GetAllModels;
 using CarsAndDrivers.UseCases.Models.GetModelById;
 using CarsAndDrivers.UseCases.Models.GetModelsByBrand;
+using CarsAndDrivers.UseCases.Models.ImportModels;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarsAndDrivers.Controllers
@@ -78,6 +80,23 @@ namespace CarsAndDrivers.Controllers
                 Id = id
             });
 
+            return Ok();
+        }
+
+        [HttpPost("import/{BrandName}")]
+        public async Task<ActionResult> ImportDatabaseForModels(
+            [FromServices] IMediator mediator,
+            string BrandName,
+            IFormFile formFile,
+            CancellationToken cancellationToken)
+        {
+            await mediator.Send(new ImportModelsCommand
+            {
+                TableOfModelsFile = formFile,
+                BrandName = BrandName
+                
+            }, cancellationToken);
+            
             return Ok();
         }
     }
