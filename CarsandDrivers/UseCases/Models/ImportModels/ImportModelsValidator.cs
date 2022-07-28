@@ -9,16 +9,16 @@ namespace CarsAndDrivers.UseCases.Models.ImportModels
     {
         public ImportModelsValidator(CarsDriversContext carsDriversContext) : base(carsDriversContext)
         {
-            RuleFor(md => md.BrandName)
+            RuleFor(md => md.BrandId)
                 .Must(BeValidBrand)
                 .WithMessage("Brand does not exist")
                 .WithErrorCode(ErrorCode.InvalidBrand.ToString());
         }
-        protected bool BeValidBrand(string brandName)
+        protected bool BeValidBrand(int brandId)
         {
             return  _carsDriversContext.CarBrands
                 .Include(x=> x.Models)
-                .FirstOrDefault(x=>x.BrandName == brandName) is not null;
+                .FirstOrDefault(x=>x.BrandId == brandId) is not null;
             
         }
     }

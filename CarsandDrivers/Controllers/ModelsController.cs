@@ -83,17 +83,17 @@ namespace CarsAndDrivers.Controllers
             return Ok();
         }
 
-        [HttpPost("import/{BrandName}")]
+        [HttpPost("import/{id}")]
         public async Task<ActionResult> ImportDatabaseForModels(
             [FromServices] IMediator mediator,
-            string BrandName,
+            int id,
             IFormFile formFile,
             CancellationToken cancellationToken)
         {
             await mediator.Send(new ImportModelsCommand
             {
                 TableOfModelsFile = formFile,
-                BrandName = BrandName
+                BrandId = id
                 
             }, cancellationToken);
             

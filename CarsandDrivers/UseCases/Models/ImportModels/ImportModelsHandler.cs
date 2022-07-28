@@ -36,7 +36,7 @@ namespace CarsAndDrivers.UseCases.Models.ImportModels
             {
                 var newModel = new CarModel
                 {
-                    BrandId = _carsDriversContext.CarBrands.Local.First(x=>x.BrandName == request.BrandName).BrandId,
+                    BrandId = request.BrandId,
                     ModelName = carModel
                 };
             
